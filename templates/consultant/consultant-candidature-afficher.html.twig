@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="text-center m-4">Mes candidatures à valider</h2>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Poste</th>
+                <th scope="col">Lieu de travail</th>
+                <th scope="col">Description</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for candidature in candidatures %}
+                {% for message in app.flashes('success') %}
+                <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+                {% if candidature.isActive == false %}
+            <tr class="table-light">
+                <th scope="row">{{ candidature.poste }}</th>
+                <td>{{ candidature.lieuDeTravail }}</td>
+                <td>{{ candidature.description }}</td>
+                <td>{{ candidature.nom }}</td>
+                <td>{{ candidature.prenom }}</td>
+                <td>{{ candidature.candidatEmail }}</td>
+                <td><a class="btn btn-success" href="{{ path('app_valider_candidature', {id: candidature.id}) }}" role="button">Valider</a></td>
+            </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
