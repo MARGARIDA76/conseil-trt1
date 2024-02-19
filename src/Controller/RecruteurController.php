@@ -79,7 +79,7 @@ class RecruteurController extends AbstractController
                 $entityManager->flush();
                 return $this->redirectToRoute('app_annonces');
             } else {
-                return $this->renderForm('annonce/ajouter.html.twig', [
+                return $this->render('annonce/ajouter.html.twig', [
                     'form' => $form,
                 ]);
             }

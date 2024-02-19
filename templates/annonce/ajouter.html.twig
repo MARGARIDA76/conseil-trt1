@@ -1,14 +1,17 @@
 {% extends '/base.html.twig' %}
 
 {% block body %}
+<div class="container">
     {% for message in app.flashes('errorProfilRecruteur') %}
         <div class="alert alert-danger">
             {{ message }} : <a href="{{ path('app_profil_recruteur') }}"> Compléter mon profil </a>
         </div>
     {% endfor %}
-    <h1>Ajouter une annonce</h1>
+    <div class="mt-5">
+    <h1 class="text-center">Ajouter une annonce</h1>
+    </div>
     {{ form(form) }}
-
+    </div>
 {% endblock %}
 
 {% block title %}

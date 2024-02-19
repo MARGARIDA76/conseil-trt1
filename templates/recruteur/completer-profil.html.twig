@@ -3,17 +3,21 @@
     {% block title %}Recruteur{% endblock %}
 
     {% block body %}
-
+<div class="container ">
         {% for message in app.flashes('error') %}
             <div class="alert alert-danger">
                 {{ message }}
             </div>
         {% endfor %}
-        <h1 class="text-center">completer mon profil</h1>
+        <div class="mt-5">
+        <h1 class="text-center mt-5">completer mon profil</h1>
+        </div>
 
 
         {{ form_start(form) }}
         {{ form_row(form.nomEntreprise) }}
         {{ form_row(form.adresse) }}
         {{ form_end(form) }}
+
+        </div>
     {% endblock %}
